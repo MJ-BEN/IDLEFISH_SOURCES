@@ -10,5 +10,4 @@ import Foundation
 struct InitModel: Codable {
 
     var user_info: UserModel?
-    var token: String?
 }
