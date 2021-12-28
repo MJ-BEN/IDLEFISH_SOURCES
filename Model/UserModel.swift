@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 #warning("用户数据, 在接入服务器后删除")
 let DEFAULT_USER_MODELS: [UserModel] = [
@@ -22,7 +23,48 @@ let DEFAULT_USER_MODELS: [UserModel] = [
 
 struct UserModel: Codable, Hashable {
     
+    enum UserGender: Int {
+        case empty      = 0
+        case man        = 1
+        case woman      = 2
+        
+        var value: String {
+            switch self {
+            case .empty:
+                return ""
+            case .man:
+                return "男"
+            case .woman:
+                return "女"
+            }
+        }
+    }
+    
     var id: Int?
     var nick_name: String?
     var avatar: String?
+    
+    var account: String?
+    
+    
+    var gender: Int?
+    var genderValue: String {
+        return UserGender(rawValue: gender ?? 0)!.value
+    }
+    
+    var address: String?
+    
+    var birthday: String?
+    
+    
+    var introduce_briefly: String?
+    
+    
+    var industry: String?
+    
+    
+    var position: String?
+    
+    
+    var school: String?
 }
